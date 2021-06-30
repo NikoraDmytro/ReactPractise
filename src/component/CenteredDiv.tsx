@@ -1,5 +1,5 @@
 import React from "react";
-import "./styles.scss";
+import "./CenteredDiv.scss";
 
 type CenteredDivProps = {
   children: React.ReactNode;

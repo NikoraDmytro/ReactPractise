@@ -1,0 +1,16 @@
+.textInput {
+  width: 40vw;
+  margin-bottom: 1.5em;
+  input {
+    width: 100%;
+    padding: 1.25em;
+    border-radius: 10px;
+    border: 2px solid #ecf0f5;
+  }
+  .error {
+    color: red;
+    font-size: small;
+    font-weight: bold;
+    margin-left: 1em;
+  }
+}
