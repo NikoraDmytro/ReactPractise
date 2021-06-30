@@ -1,9 +1,9 @@
 import React from "react";
 import { CenteredDiv } from "../../component/CenteredDiv";
 import { Formik, FormikHelpers, Form } from "formik";
-import * as Yup from "yup";
 import "./Authorization.scss";
 import { AuthorizationTextInput } from "./components/AuthorizationTextInput";
+import { LogInFormValidationSchema } from "./../../utils/validation/LogInFormValidation";
 
 interface FormValues {
   email: string;
@@ -21,10 +21,7 @@ export const Authorization = (): JSX.Element => {
       <h2>Log in</h2>
       <Formik
         initialValues={initialValues}
-        validationSchema={Yup.object({
-          email: Yup.string().required("This field is required"),
-          password: Yup.string().required("This field is required"),
-        })}
+        validationSchema={LogInFormValidationSchema}
         onSubmit={(
           values: FormValues,
           { setSubmitting }: FormikHelpers<FormValues>
@@ -33,16 +30,8 @@ export const Authorization = (): JSX.Element => {
         }}
       >
         <Form className="LogInForm">
-          <AuthorizationTextInput
-            name="email"
-            type="email"
-            placeholder="Email"
-          />
-          <AuthorizationTextInput
-            name="password"
-            type="password"
-            placeholder="Password"
-          />
+          <AuthorizationTextInput name="email" />
+          <AuthorizationTextInput name="password" type="text" />
           <button type="submit">Log In</button>
         </Form>
       </Formik>

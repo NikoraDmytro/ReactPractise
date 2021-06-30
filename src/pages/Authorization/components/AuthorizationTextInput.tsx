@@ -13,9 +13,12 @@ export const AuthorizationTextInput = ({
 }: FieldProps): JSX.Element => {
   const [field, meta] = useField(name);
 
+  let placeholder: string = name.slice(1);
+  placeholder = name[0].toUpperCase() + placeholder;
+
   return (
     <div className="textInput">
-      <input {...field} {...props} />
+      <input {...field} type={props.type || name} placeholder={placeholder} />
       {meta.touched && meta.error ? (
         <span className="error">{meta.error}</span>
       ) : null}
