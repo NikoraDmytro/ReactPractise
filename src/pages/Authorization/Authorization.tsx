@@ -2,11 +2,17 @@ import React from "react";
 import { CenteredDiv } from "../../component/CenteredDiv";
 import { Formik, Form } from "formik";
 import "./Authorization.scss";
-import { AuthorizationTextInput } from "./components/AuthorizationTextInput";
+import {
+  AuthorizationTextInput,
+  AuthorizationPasswordInput,
+} from "./components/AuthorizationTextInput";
 import { LogInFormValidationSchema } from "./../../utils/validation/LogInFormValidation";
 import { onFormSubmit } from "./../../utils/functions/onFormSubmit";
 import { useHistory } from "react-router-dom";
 
+interface FormStatus {
+  status: { serverError?: string; userToken?: string };
+}
 interface FormValues {
   email: string;
   password: string;
@@ -20,6 +26,16 @@ const initialValues: FormValues = {
 export const Authorization = (): JSX.Element => {
   const history = useHistory();
 
+  const ServerError = ({ status }: FormStatus): JSX.Element | null => {
+    if (status && status.serverError)
+      return (
+        <h3 className="serverError">
+          <strong>{status.serverError}</strong>
+        </h3>
+      );
+    else return null;
+  };
+
   return (
     <CenteredDiv>
       <h2>Log in</h2>
@@ -31,13 +47,11 @@ export const Authorization = (): JSX.Element => {
         {({ status }) => (
           <Form className="LogInForm">
             {status && status.userToken ? history.push(status.userToken) : null}
+
             <AuthorizationTextInput name="email" />
-            <AuthorizationTextInput name="password" type="text" />
-            {status && status.serverError ? (
-              <h3 className="serverError">
-                <strong>{status.serverError}</strong>
-              </h3>
-            ) : null}
+            <AuthorizationPasswordInput name="password" type="text" />
+
+            <ServerError status={status} />
             <button type="submit">Log In</button>
           </Form>
         )}
