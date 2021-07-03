@@ -6,4 +6,50 @@
   padding: 2em;
   height: 90%;
   list-style-type: none;
+  overflow-y: scroll;
+}
+
+.GoalContainer {
+  display: flex;
+  flex-direction: row;
+  &:not(:last-child) {
+    border-bottom: 2px solid #d6deea;
+  }
+  padding: 1em 0;
+  height: 20%;
+}
+
+.Goal {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+  .GoalImg {
+    height: 100%;
+    width: auto;
+    margin-right: 1em;
+  }
+  .GoalInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    h4 {
+      margin: 0;
+    }
+    span {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      img {
+        margin-right: 0.5em;
+        width: 0.9em;
+        height: 0.9em;
+      }
+      p {
+        margin: 0;
+        font-size: small;
+        color: #545e71;
+      }
+    }
+  }
 }

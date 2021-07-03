@@ -18,7 +18,7 @@ export const GoallyTemplateLibrary = observer(
 
     return (
       <div className="GoallyTemplateLibrary">
-        <h1 className="title">GoallyTemplateLibrary</h1>
+        <h1 className="title">Goally Template Library</h1>
         <GoallyTemplate Goals={Goals} />
       </div>
     );
