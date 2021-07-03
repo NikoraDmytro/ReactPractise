@@ -1,6 +1,7 @@
 import React from "react";
 import "./GoallyTemplate.scss";
 import clock from "../img/clock.png";
+import { CustomScrollBar } from "./../../../components/CustomScrollBar/CustomScrollBar";
 
 interface Goal {
   name: string;
@@ -47,10 +48,12 @@ export const GoallyTemplate = ({ Goals }: GoallyTemplateProps): JSX.Element => {
 
   return (
     <ul className="GoallyTemplate">
-      {GoalsList}
-      {GoalsList2}
-      {GoalsList3}
-      {GoalsList4}
+      <CustomScrollBar className="CustomScrollBar">
+        {GoalsList}
+        {GoalsList2}
+        {GoalsList3}
+        {GoalsList4}
+      </CustomScrollBar>
     </ul>
   );
 };
