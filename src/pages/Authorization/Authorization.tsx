@@ -1,5 +1,5 @@
 import React from "react";
-import { CenteredDiv } from "../../component/CenteredDiv";
+import { CenteredDiv } from "../../components/CenteredDiv/CenteredDiv";
 import { Formik, Form } from "formik";
 import "./Authorization.scss";
 import {
