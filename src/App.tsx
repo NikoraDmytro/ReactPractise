@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { GoallyTemplateLibrary } from "./pages/GoallyTemplateLibrary";
+import { GoallyTemplateLibrary } from "./pages/GoallyTemplateLibrary/GoallyTemplateLibrary";
 import { Authorization } from "./pages/Authorization/Authorization";
 
 function App(): JSX.Element {
